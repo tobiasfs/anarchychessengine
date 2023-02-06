@@ -12,7 +12,7 @@ I want to play them !!1!
 
 Take a textual description of a game. Extract the details of the game:
 * The board
-* The meeples
+* The pieces
 * The setup
 * The rules of movement, combat
 * The winning condition
@@ -29,4 +29,4 @@ Java, because portability > speed
 
 ## ECS (Entity Component System)
 
-Since the properties of the meeples are not known up front. They have to be constructed on the fly. Hence [ECS](https://en.wikipedia.org/wiki/Entity_component_system).
+Since the properties of the pieces are not known up front. They have to be constructed on the fly. Hence [ECS](https://en.wikipedia.org/wiki/Entity_component_system).

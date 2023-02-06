@@ -1,0 +1,63 @@
+This is bog-standard vanilla chess.
+
+The board!
+
+It is square. The grid is quadratic. The areas are displayed and are called squares.
+It has 8 rows and 8 columns. The columns have latin letters and are numbered left to right. The rows have arabic numbers and are numbered bottom to top.
+The bottom left square is black. The squares colors alternate between black and white.
+For the squares the black is brown and the white is beige.
+
+The homerow is called a rank.
+The first row is the first rank for white.
+The second row is the second rank for white.
+The last row is the first rank for black.
+The second to last row is the second rank for black.
+
+The pieces!
+
+Players can only move pieces of the own color.
+Players can only attack pieces of the enemies color.
+Pieces can only attack one enemy piece. 
+The pieces can only move over free squares. 
+
+The king is a piece, that can move or attack one square vertically or horizontally or diagonally.
+The king cannot move or attack onto a square that is under attack. 
+The rook is a piece, that can move or attack any number of squares verticall or horizontally.
+The bishop is a piece, that can move or attack any number of squares diagonally.
+The queen is a piece, that can move or attack any number of squares horizontally, vertically or diagonally.
+
+The pawn moves forward one square. The pawn attacks one square front left or one square front right.
+From the starting position the pawn can move forward two squares.
+A pawn can attack another pawn one square to the front left or one square to the front right in passing; this is called "en passant". (En passant is so special, that I will simply hardwire it. Also a separate function, because it has som much good potential for abuse.) 
+
+The knight is a piece, that can move or attack two squares forward and one to the left or two squares forward and one to the right or two squares backward and one to the left or two squares backward and one to the right or two squares left and one to the forward or two squares right and one to the forward or two squares left and one to the backward or two squares right and one to the backward.   
+The knight can move or attack over all squares.
+
+If the the king and a rook made no move and if between the king and this rook are no pieces, the king advances the rook two squares and the rook moves to the passed square. This is called castling.
+
+If a pawn reaches the first rank of the opponent, this pawn can be changed to queen of the same color. This is called promotion.
+If a pawn reaches the first rank of the opponent, this pawn can be changed to rook or bishop or knight of the same color. This is called underpromotion.
+
+The setup!
+
+The second homerow is filled with pawns.
+One king is placed on the homerow and on the square east of the center.
+One queen is placed on the homerow and on the square west of the center.
+Bishops are placed on the homerow in the the center half on free squares.
+Rooks are placed on the homerow in the corners.
+Knights are place on the homerow on free squares.
+
+The game and finish!
+
+White starts.
+The players take turns. 
+A player makes one action per turn. (Actions are all single sentences and named paragraphs. See castling: two moves one action.)
+
+If the king is under attack, this is called check.
+If the king cannot leave attack, this is called checkmate and this is a winning condition.
+If the king is not under attack and the player has no moves, this is called stalemate and this is a draw condition.
+If the opponents king and the players king cannot be attacked, this is called a "dead position" and this is a draw condition.
+If three times the same constellation is on the board and the player signals "Draw", this is called a "Threefold repetition" and is a draw condition.
+If the opponents pawn has not been moved for 50 turns and the player signals "Draw", this is called the "Fifty-move rule" and is a draw condition.
+If the players king cannot be attacked and the player signals "Draw", this is called a "Draw by resignation" and is a draw condition.
+A player can signal "Resignation" this is a loosing condition.
