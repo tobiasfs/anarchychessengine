@@ -1,0 +1,41 @@
+This is vanilla go.
+It is like tic-tac-toe but with different rules.
+
+The board!
+
+It is square. The grid is quadratic. The grid points are displayed and are called points.
+
+It has 9 rows and 9 columns.
+The columns and rows have arabic numbers and are numbered left to right. 
+The rows have arabic numbers and are numbered bottom to top.
+
+The pieces!
+
+The pieces are called stones.
+The stones can be placed.
+A free point horizontally or vertically next to a stone is called a liberty. This liberty belongs to the stone. Liberties is the plural of liberty.
+Each stone is in a group.
+Pieces touching horizontally or touching vertically or touching diagonally with at least one free point next to the diagoal belong to the same group.
+One stone in a groups has to have a liberty for the group to have a liberty.
+A liberty inside a group are called an eye.
+If a group has no liberties, it is removed from the board.
+
+The setup!
+
+The board is empty.
+The black players tray holds infinite black stones.
+The white players tray holds infinite white stones.
+
+The game and finish!
+
+Black starts.
+The players take turns. 
+A player sets one stone on the board per turn and the opponents groups are evaluated and the players groups are evaluated.
+The same constellation is not allowed.
+
+If both players "Pass" this is the end condition.
+
+The score!
+
+(Territory scoring for now.)
+The number of liberties and the number of stones removed. This is the score. The score is to be maximised.
