@@ -1,0 +1,225 @@
+          
+                 there│   PRON, AdvType=Ex
+
+                   now│   PART
+
+                   the│   DET, PronType=Art
+                  this│   DET
+                    he│  PRON, PronType=Prs
+                   she│  PRON, PronType=Prs
+                    it│  PRON, PronType=Prs
+
+
+                    be│   VERB, VerbForm=Inf
+                    is│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	    , AUX
+                   has│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	     , AUX
+                   are│  VERB, Tense=Pres|VerbForm=Fin
+                  have│  VERB, Tense=Pres|VerbForm=Fin
+                  been│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+
+                   not│   PART, Polarity=Neg
+                  only│   PART
+                  
+                  
+               another│   DET
+                  each│   DET
+                  
+                    no│   DET, Polarity=Neg
+                     a│   DET, PronType=Art
+                    an│   DET, PronType=Art
+                   any│   DET
+                  some│   DET
+                   all│   DET
+                  both│   DET
+
+                single│   ADJ, NumType=Mult
+                double│   ADJ, NumType=Mult
+                triple│   ADJ, NumType=Mult
+             quadrupel│   ADJ, NumType=Mult
+                  zero│   NUM
+                   one│   NUM
+                   two│   NUM
+                 three│   NUM
+                  four│   NUM
+              infinite│   NUM 
+                   
+                 times│   CCONJ
+
+
+               between│   ADP
+                  from│   ADP
+                    to│   ADP
+                    at│   ADP
+                    in│   ADP
+                    on│   ADP
+                    en│   ADP
+                  onto│   ADP
+
+                 least│   ADJ, Degree=Sup
+
+
+                   own│   ADJ
+                  same│   ADJ
+              opposite│   ADJ
+
+                  free│   ADJ
+                 empty│   ADJ
+                 first│   ADJ
+                second│   ADJ
+                  last│   ADJ
+                  next│   ADJ
+
+                 beige│   ADJ
+                 black│   ADJ
+                 brown│   ADJ
+                 white│   ADJ
+
+             alternate│   ADJ
+             different│   ADJ
+              separate│   ADJ
+
+                square│   ADJ
+             quadratic│   ADJ
+                arabic│   ADJ
+                 latin│   ADJ
+                 
+                 
+                player│   NOUN
+                 enemy│   NOUN
+              opponent│   NOUN
+                 
+                  game│   NOUN
+                  rule│   NOUN
+                 board│   NOUN
+                  tray│   NOUN
+                  grid│   NOUN
+                 point│   NOUN
+                  area│   NOUN
+                 group│   NOUN
+                 piece│   NOUN
+                 color│   NOUN
+              position│   NOUN
+             direction│   NOUN
+             condition│   NOUN
+                  form│   NOUN
+               variant│   NOUN
+                 setup│   NOUN, VERB
+         constellation│   NOUN
+                 score│   NOUN, VERB
+
+                action│   NOUN
+                  move│   NOUN,   VERB, VerbForm=Inf
+               passing│   NOUN,   VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+                attack│   NOUN,   VERB, VerbForm=Inf
+               advance│   NOUN,   VERB, VerbForm=Inf
+                signal│   NOUN,   VERB, VerbForm=Inf
+                   set│   NOUN,   VERB, VerbForm=Inf
+
+                number│   NOUN
+                letter│   NOUN
+               
+                plural│   NOUN
+			  singular│   NOUN
+
+              diagonal│   NOUN
+               homerow│   NOUN
+                   row│   NOUN
+                column│   NOUN
+                corner│   NOUN
+                  half│   NOUN
+                  
+                  
+                 north│   
+                 south│   
+                  west│   NOUN
+                  east│   ADJ
+
+                 front│   NOUN
+				  back│   NOUN
+                  left│   VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                 right│   NOUN
+
+                   top│   NOUN,   ADJ
+                center│   NOUN
+                bottom│   NOUN
+                   end│   NOUN
+
+              backward│   ADV
+               forward│   ADV
+          horizontally│   ADV
+            vertically│   ADV
+            diagonally│   ADV
+
+
+                   for│   ADP
+                    of│   ADP
+                  with│   ADP
+                   per│   ADP
+                inside│   ADP
+               outside│   ADP
+                  over│   ADP
+                 under│   ADP
+
+
+                   and│   CCONJ
+                    or│   CCONJ
+
+   
+                finish│   VERB, VerbForm=Inf,   NOUN
+                    go│   VERB, VerbForm=Inf
+                 leave│   VERB, VerbForm=Inf
+                  take│   VERB, VerbForm=Inf
+                  turn│   VERB, VerbForm=Inf,   NOUN
+                signal│   VERB, VerbForm=Inf,   NOUN
+              
+                 place│   VERB, VerbForm=Inf,   NOUN
+                belong│   VERB, VerbForm=Inf
+                   see│   VERB, VerbForm=Inf
+
+               belongs│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+                 faces│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+                 holds│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+                 makes│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+               reaches│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+                starts│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
+                 turns│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	,   NOUN, Number=Plur
+
+             displayed│  VERB, Tense=Past|VerbForm=Fin
+                 moved│  VERB, Tense=Past|VerbForm=Fin
+               allowed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+              numbered│  VERB, Tense=Past|VerbForm=Fin
+                called│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                 named│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+               changed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+               colored│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+             evaluated│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                  made│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                filled│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                placed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+               removed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+                passed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+             maximised│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+             minimized|  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+
+
+                    if│   SCONJ
+                  that│   DET ( PronType=Int,Rel )
+                  like│   SCONJ
+
+                   can│   VERB, VerbType=Mod
+                  must│   VERB, VerbType=Mod
+
+                   but│   CCONJ
+               because│   ADP
+                    so│ RB
+                  also│ RB
+
+
+                  draw│  NOUN,   VERB, VerbForm=Inf
+                losing│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+               winning│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+               
+               scoring│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+              starting│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+              touching│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
+              attacked│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part

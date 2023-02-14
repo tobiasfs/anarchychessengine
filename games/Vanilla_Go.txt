@@ -15,7 +15,7 @@ The pieces are called stones.
 The stones can be placed.
 A free point horizontally or vertically next to a stone is called a liberty. This liberty belongs to the stone. Liberties is the plural of liberty.
 Each stone is in a group.
-Pieces touching horizontally or touching vertically or touching diagonally with at least one free point next to the diagoal belong to the same group.
+Pieces touching horizontally or touching vertically or touching diagonally with at least one free point next to the diagonal belong to the same group.
 One stone in a groups has to have a liberty for the group to have a liberty.
 A liberty inside a group are called an eye.
 If a group has no liberties, it is removed from the board.

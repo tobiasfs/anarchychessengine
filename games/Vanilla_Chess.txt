@@ -1,13 +1,22 @@
 This is bog-standard vanilla chess.
 
+The player!
+
+There are two player. The player are colored black or white.
+The white player faces north. The black player faces the opposite direction.
+
 The board!
 
-It is square. The grid is quadratic. The areas are displayed and are called squares.
-It has 8 rows and 8 columns. The columns have latin letters and are numbered left to right. The rows have arabic numbers and are numbered bottom to top.
-The bottom left square is black. The squares colors alternate between black and white.
+It is square. The grid is quadratic. It has 8 rows and 8 columns. The areas are displayed and are called squares.
+The columns have latin letters and are numbered west to east and are starting from one.
+The rows have arabic numbers and are numbered from south to north and are starting from one.
+
+The south west square is black. The squares colors alternate between black and white.
 For the squares the black is brown and the white is beige.
 
-The homerow is called a rank.
+The rows are called ranks.
+The columns are called files.
+The homerow is the front row.
 The first row is the first rank for white.
 The second row is the second rank for white.
 The last row is the first rank for black.
@@ -22,13 +31,14 @@ The pieces can only move over free squares.
 
 The king is a piece, that can move or attack one square vertically or horizontally or diagonally.
 The king cannot move or attack onto a square that is under attack. 
-The rook is a piece, that can move or attack any number of squares verticall or horizontally.
+The rook is a piece, that can move or attack any number of squares vertically or horizontally.
 The bishop is a piece, that can move or attack any number of squares diagonally.
 The queen is a piece, that can move or attack any number of squares horizontally, vertically or diagonally.
 
 The pawn moves forward one square. The pawn attacks one square front left or one square front right.
 From the starting position the pawn can move forward two squares.
-A pawn can attack another pawn one square to the front left or one square to the front right in passing; this is called "en passant". (En passant is so special, that I will simply hardwire it. Also a separate function, because it has som much good potential for abuse.) 
+A pawn can attack another pawn one square to the front left or one square to the front right in passing; this is called "en passant".
+(En passant is so special, that I will simply hardwire it. Also a separate function, because it has some much good potential for abuse.) 
 
 The knight is a piece, that can move or attack two squares forward and one to the left or two squares forward and one to the right or two squares backward and one to the left or two squares backward and one to the right or two squares left and one to the forward or two squares right and one to the forward or two squares left and one to the backward or two squares right and one to the backward.   
 The knight can move or attack over all squares.
@@ -40,7 +50,7 @@ If a pawn reaches the first rank of the opponent, this pawn can be changed to ro
 
 The setup!
 
-The second homerow is filled with pawns.
+The second rank is filled with pawns.
 One king is placed on the homerow and on the square east of the center.
 One queen is placed on the homerow and on the square west of the center.
 Bishops are placed on the homerow in the the center half on free squares.
@@ -60,4 +70,4 @@ If the opponents king and the players king cannot be attacked, this is called a 
 If three times the same constellation is on the board and the player signals "Draw", this is called a "Threefold repetition" and is a draw condition.
 If the opponents pawn has not been moved for 50 turns and the player signals "Draw", this is called the "Fifty-move rule" and is a draw condition.
 If the players king cannot be attacked and the player signals "Draw", this is called a "Draw by resignation" and is a draw condition.
-A player can signal "Resignation" this is a loosing condition.
+A player can signal "Resignation" this is a losing condition.
