@@ -1,225 +1,879 @@
-          
-                 there│   PRON, AdvType=Ex
-
-                   now│   PART
-
-                   the│   DET, PronType=Art
-                  this│   DET
-                    he│  PRON, PronType=Prs
-                   she│  PRON, PronType=Prs
-                    it│  PRON, PronType=Prs
 
 
-                    be│   VERB, VerbForm=Inf
-                    is│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	    , AUX
-                   has│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	     , AUX
-                   are│  VERB, Tense=Pres|VerbForm=Fin
-                  have│  VERB, Tense=Pres|VerbForm=Fin
-                  been│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+# -----------------------------------------------------------------------------
 
-                   not│   PART, Polarity=Neg
-                  only│   PART
-                  
-                  
-               another│   DET
-                  each│   DET
-                  
-                    no│   DET, Polarity=Neg
-                     a│   DET, PronType=Art
-                    an│   DET, PronType=Art
-                   any│   DET
-                  some│   DET
-                   all│   DET
-                  both│   DET
+@ !
+: PUNCT ( PunctType=Peri )
 
-                single│   ADJ, NumType=Mult
-                double│   ADJ, NumType=Mult
-                triple│   ADJ, NumType=Mult
-             quadrupel│   ADJ, NumType=Mult
-                  zero│   NUM
-                   one│   NUM
-                   two│   NUM
-                 three│   NUM
-                  four│   NUM
-              infinite│   NUM 
-                   
-                 times│   CCONJ
+@ .
+: PUNCT ( PunctType=Peri )
 
+@ ;
+: PUNCT ( PunctType=Peri )
 
-               between│   ADP
-                  from│   ADP
-                    to│   ADP
-                    at│   ADP
-                    in│   ADP
-                    on│   ADP
-                    en│   ADP
-                  onto│   ADP
+@ ,
+: PUNCT ( PunctType=Comm )
 
-                 least│   ADJ, Degree=Sup
+@ there
+: PRON ( Definite=Def )
 
+@ now
+: ADV ( Degree=Pos )
 
-                   own│   ADJ
-                  same│   ADJ
-              opposite│   ADJ
+@ if
+: SCONJ
 
-                  free│   ADJ
-                 empty│   ADJ
-                 first│   ADJ
-                second│   ADJ
-                  last│   ADJ
-                  next│   ADJ
+@ that
+: SCONJ
+: ADP
+: DET
 
-                 beige│   ADJ
-                 black│   ADJ
-                 brown│   ADJ
-                 white│   ADJ
+@ like
+: ADP
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
 
-             alternate│   ADJ
-             different│   ADJ
-              separate│   ADJ
+@ can
+: VERB ( VerbType=Mod )
+: VERB ( Tense=Pres, VerbForm=Fin )
 
-                square│   ADJ
-             quadratic│   ADJ
-                arabic│   ADJ
-                 latin│   ADJ
-                 
-                 
-                player│   NOUN
-                 enemy│   NOUN
-              opponent│   NOUN
-                 
-                  game│   NOUN
-                  rule│   NOUN
-                 board│   NOUN
-                  tray│   NOUN
-                  grid│   NOUN
-                 point│   NOUN
-                  area│   NOUN
-                 group│   NOUN
-                 piece│   NOUN
-                 color│   NOUN
-              position│   NOUN
-             direction│   NOUN
-             condition│   NOUN
-                  form│   NOUN
-               variant│   NOUN
-                 setup│   NOUN, VERB
-         constellation│   NOUN
-                 score│   NOUN, VERB
+@ must
+: VERB ( VerbType=Mod )
 
-                action│   NOUN
-                  move│   NOUN,   VERB, VerbForm=Inf
-               passing│   NOUN,   VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-                attack│   NOUN,   VERB, VerbForm=Inf
-               advance│   NOUN,   VERB, VerbForm=Inf
-                signal│   NOUN,   VERB, VerbForm=Inf
-                   set│   NOUN,   VERB, VerbForm=Inf
+@ but
+: CCONJ
+: ADP
+: ADV ( Degree=Pos )
 
-                number│   NOUN
-                letter│   NOUN
-               
-                plural│   NOUN
-			  singular│   NOUN
+@ because
+: ADP
 
-              diagonal│   NOUN
-               homerow│   NOUN
-                   row│   NOUN
-                column│   NOUN
-                corner│   NOUN
-                  half│   NOUN
-                  
-                  
-                 north│   
-                 south│   
-                  west│   NOUN
-                  east│   ADJ
+@ so
+: CCONJ
+: ADP
 
-                 front│   NOUN
-				  back│   NOUN
-                  left│   VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                 right│   NOUN
+@ also
+: CCONJ
 
-                   top│   NOUN,   ADJ
-                center│   NOUN
-                bottom│   NOUN
-                   end│   NOUN
+@ for
+: ADP
 
-              backward│   ADV
-               forward│   ADV
-          horizontally│   ADV
-            vertically│   ADV
-            diagonally│   ADV
+@ of
+: ADP
+
+@ with
+: ADP
+: ADV ( Degree=Pos )
+
+@ per
+: ADP
+
+@ and
+: CCONJ
+
+@ or
+: CCONJ
+
+@ the
+: DET ( PronType=Art )
+
+@ this
+: DET
+
+@ he
+: PRON ( PronType=Prs )
+
+@ she
+: PRON ( PronType=Prs )
+
+@ it
+: PRON ( PronType=Prs )
 
 
-                   for│   ADP
-                    of│   ADP
-                  with│   ADP
-                   per│   ADP
-                inside│   ADP
-               outside│   ADP
-                  over│   ADP
-                 under│   ADP
+# -----------------------------------------------------------------------------
 
 
-                   and│   CCONJ
-                    or│   CCONJ
-
-   
-                finish│   VERB, VerbForm=Inf,   NOUN
-                    go│   VERB, VerbForm=Inf
-                 leave│   VERB, VerbForm=Inf
-                  take│   VERB, VerbForm=Inf
-                  turn│   VERB, VerbForm=Inf,   NOUN
-                signal│   VERB, VerbForm=Inf,   NOUN
-              
-                 place│   VERB, VerbForm=Inf,   NOUN
-                belong│   VERB, VerbForm=Inf
-                   see│   VERB, VerbForm=Inf
-
-               belongs│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-                 faces│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-                 holds│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-                 makes│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-               reaches│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-                starts│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	
-                 turns│  VERB, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	,   NOUN, Number=Plur
-
-             displayed│  VERB, Tense=Past|VerbForm=Fin
-                 moved│  VERB, Tense=Past|VerbForm=Fin
-               allowed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-              numbered│  VERB, Tense=Past|VerbForm=Fin
-                called│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                 named│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-               changed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-               colored│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-             evaluated│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                  made│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                filled│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                placed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-               removed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-                passed│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-             maximised│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
-             minimized|  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+@ not
+: CCONJ ( Degree=Pos, Polarity=Neg )
+: ADV ( Degree=Pos, Polarity=Neg )
 
 
-                    if│   SCONJ
-                  that│   DET ( PronType=Int,Rel )
-                  like│   SCONJ
+@ only
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
 
-                   can│   VERB, VerbType=Mod
-                  must│   VERB, VerbType=Mod
+@ another
+: DET
 
-                   but│   CCONJ
-               because│   ADP
-                    so│ RB
-                  also│ RB
+@ each
+: DET
+
+@ no
+: DET ( Degree=Pos, Polarity=Neg )
+: ADV ( Degree=Neg, Polarity=Neg )
+
+@ a
+: DET
+: SYM
+
+@ an
+! a
+: DET
+
+@ any
+: DET
+: ADV ( Degree=Pos )
+
+@ some
+: DET
+: ADV ( Degree=Pos )
+
+@ all
+: DET
+: ADV ( Degree=Pos )
+
+@ both
+: DET
 
 
-                  draw│  NOUN,   VERB, VerbForm=Inf
-                losing│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-               winning│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-               
-               scoring│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-              starting│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-              touching│  VERB, Aspect=Prog|Tense=Pres|VerbForm=Part
-              attacked│  VERB, Aspect=Perf|Tense=Past|VerbForm=Part
+# -----------------------------------------------------------------------------
+
+
+@ times
+! time
+: CCONJ
+
+@ between
+: ADP
+
+@ from
+: ADP
+
+@ to
+: ADP
+
+@ at
+: ADP
+
+@ in
+: ADP
+
+@ en
+: ADP
+
+@ on
+: ADP
+
+@ onto
+: ADP
+
+@ least
+: ADJ ( Degree=Sup )
+: ADV ( Degree=Sup )
+
+@ own
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+
+@ same
+: ADP
+: ADJ ( Degree=Pos )
+
+@ opposite
+: ADP
+: ADJ ( Degree=Pos )
+: NOUN ( Number=Sing )
+
+@ free
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ empty
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ first
+: ADJ ( Degree=Pos )
+
+@ second
+: ADJ ( Degree=Pos )
+
+@ third
+: ADJ ( Degree=Pos )
+
+@ fourth
+: ADJ ( Degree=Pos )
+
+@ last
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+
+@ next
+: ADJ ( Degree=Pos )
+: ADP
+
+
+# -----------------------------------------------------------------------------
+
+
+@ single
+: ADJ ( Degree=Pos )
+
+@ double
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+
+@ triple
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+
+@ zero
+: NUM ( NumType=Card )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ one
+: NUM ( NumType=Card )
+: DET
+: ADV ( Degree=Pos )
+
+@ two
+: NUM ( NumType=Card )
+
+@ three
+: NUM ( NumType=Card )
+
+@ four
+: NUM ( NumType=Card )
+
+@ five
+: NUM ( NumType=Card )
+
+@ six
+: NUM ( NumType=Card )
+
+@ seven
+: NUM ( NumType=Card )
+
+@ eight
+: NUM ( NumType=Card )
+
+@ nine
+: NUM ( NumType=Card )
+
+@ ten
+: NUM ( NumType=Card )
+
+@ finite
+: ADJ ( Degree=Pos )
+
+@ infinite
+: NUM ( NumType=Card )
+
+
+
+# -----------------------------------------------------------------------------
+
+
+@ alternate
+: ADJ ( Degree=Pos )
+
+@ different
+: ADJ ( Degree=Pos )
+
+@ separate
+: ADJ ( Degree=Pos )
+
+@ half
+: NOUN ( Number=Sing )
+
+@ north
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+
+@ south
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+
+@ west
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+
+@ east
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+
+@ front
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+
+@ back
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+: ADP ( PartType=Vbp )
+
+@ left
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+: VERB ( Tense=Past, VerbForm=Fin, Lemma=leave )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part, Lemma=leave )
+
+@ right
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: ADV ( Degree=Pos )
+
+@ top
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ center
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+
+@ bottom
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+
+@ end
+: NOUN ( Number=Sing )
+: ADJ ( Degree=Pos )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ backward
+: ADV ( Degree=Pos )
+: ADP ( PartType=Vbp )
+
+@ forward
+: ADV ( Degree=Pos )
+: ADJ ( Degree=Pos )
+: ADP ( PartType=Vbp )
+
+@ horizontally
+! horizontal
+: ADV ( Degree=Pos )
+
+@ vertically
+! vertical
+: ADV ( Degree=Pos )
+
+@ diagonally
+! diagonal
+: ADV ( Degree=Pos )
+
+@ inside
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+: ADJ ( Degree=Pos )
+
+@ outside
+: NOUN ( Number=Sing )
+: ADV ( Degree=Pos )
+: ADJ ( Degree=Pos )
+
+@ over
+: ADV ( Degree=Pos )
+
+@ under
+: ADP
+
+@ passing
+! pass
+: NOUN ( Number=Sing )
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+
+@ touching
+! touch
+: ADJ ( Degree=Pos )
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+
+@ attacked
+! attack
+: ADJ ( Degree=Pos )
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+# -----------------------------------------------------------------------------
+
+
+@ beige
+: ADJ ( Degree=Pos )
+
+@ black
+: ADJ ( Degree=Pos )
+
+@ brown
+: ADJ ( Degree=Pos )
+
+@ white
+: ADJ ( Degree=Pos )
+
+
+# -----------------------------------------------------------------------------
+
+
+@ square
+: ADJ ( Degree=Pos )
+: NOUN ( Number=Sing )
+
+@ quadratic
+: ADJ ( Degree=Pos )
+
+@ arabic
+: ADJ ( Degree=Pos )
+
+@ latin
+: ADJ ( Degree=Pos )
+
+
+# -----------------------------------------------------------------------------
+
+
+@ game
+: NOUN ( Number=Sing )
+
+@ player
+: NOUN ( Number=Sing )
+
+@ opponent
+: NOUN ( Number=Sing )
+
+@ opponents
+! opponent
+: NOUN ( Number=Plur )
+
+@ enemy
+: NOUN ( Number=Sing )
+
+@ enemies
+! enemy
+: NOUN ( Number=Plur )
+
+
+@ rule
+: NOUN ( Number=Sing )
+
+@ rules
+! rule
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ piece
+: NOUN ( Number=Sing )
+
+@ pieces
+! piece
+: NOUN ( Number=Plur )
+
+@ group
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+
+@ groups
+! group
+: NOUN ( Number=Plur )
+
+@ board
+: NOUN ( Number=Sing )
+
+@ grid
+: NOUN ( Number=Sing )
+
+@ point
+: NOUN ( Number=Sing )
+
+@ area
+: NOUN ( Number=Sing )
+
+@ row
+: NOUN ( Number=Sing )
+
+@ line
+: NOUN ( Number=Sing )
+
+@ rows
+! row
+: NOUN ( Number=Plur )
+
+@ homerow
+! row
+: NOUN ( Number=Sing )
+
+@ column
+: NOUN ( Number=Sing )
+
+@ columns
+! column
+: NOUN ( Number=Plur )
+
+@ diagonal
+: NOUN ( Number=Sing )
+
+@ corner
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+
+@ corners
+! corner
+: NOUN ( Number=Plur )
+: VERB
+
+@ bag
+: NOUN ( Number=Sing )
+
+@ tray
+: NOUN ( Number=Sing )
+
+@ color
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+
+@ position
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+
+@ direction
+: NOUN ( Number=Sing )
+
+
+
+
+
+
+@ letter
+: NOUN ( Number=Sing )
+
+@ letters
+! letter
+: NOUN ( Number=Plur )
+
+@ number
+: NOUN ( Number=Sing )
+
+@ numbers
+! number
+: NOUN ( Number=Plur )
+: VERB
+
+@ plural
+: NOUN ( Number=Sing )
+
+@ singular
+: NOUN ( Number=Sing )
+
+@ draw
+: NOUN ( Number=Sing )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ losing
+! lose
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+: ADJ ( Degree=Pos )
+
+@ winning
+! win
+: ADJ ( Degree=Pos )
+: NOUN ( Number=Sing )
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+
+@ starting
+! start
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+: ADJ ( Degree=Pos )
+
+@ points
+! point
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ score
+: NOUN ( Number=Sing )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+
+
+@ action
+: NOUN ( Number=Sing )
+
+@ move
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+
+@ condition
+: NOUN ( Number=Sing )
+
+
+@ variant
+: NOUN ( Number=Sing )
+
+@ setup
+: NOUN ( Number=Sing )
+
+@ constellation
+: NOUN ( Number=Sing )
+
+@ configuration
+: NOUN ( Number=Sing )
+
+# -----------------------------------------------------------------------------
+
+@ form
+: NOUN ( Number=Sing )
+: VERB 
+
+@ attack
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ advance
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ signal
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ set
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+: VERB ( Tense=Pres, VerbForm=Fin )
+: NOUN ( Number=Sing )
+
+@ attacks
+! attack
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ colors
+! color
+: NOUN ( Number=Plur )
+
+@ signals
+! signal
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ players
+! player
+: NOUN ( Number=Plur )
+
+@ moves
+! move
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ squares
+! square
+: NOUN ( Number=Plur )
+
+@ areas
+! area
+: NOUN ( Number=Plur )
+
+
+# -----------------------------------------------------------------------------
+
+
+@ be
+: VERB ( VerbForm=Inf )
+
+@ been
+! be
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ is
+! be
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ are
+! be
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ has
+! have
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+: VERB ( Number=Sing, Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ have
+: VERB ( VerbForm=Inf )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+
+# -----------------------------------------------------------------------------
+
+@ minimized
+! minimize
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ maximised
+! maximise
+: VERB ( Tense=Past, VerbForm=Fin )
+
+
+@ advances
+! advance
+: VERB
+: NOUN ( Number=Plur )
+
+@ sets
+! set
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+: NOUN ( Number=Plur )
+
+@ finish
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ go
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ leave
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ take
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ turn
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ signal
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ place
+: NOUN ( Number=Sing )
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ belong
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ belongs
+! belong
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ see
+: VERB ( VerbForm=Inf )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ faces
+! face
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ holds
+! hold
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ makes
+! make
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ reaches
+! reach
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ starts
+! start
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+: VERB ( Tense=Pres, VerbForm=Fin )
+
+@ turns
+! turn
+: NOUN ( Number=Plur )
+: VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
+
+@ displayed
+! display
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ moved
+! move
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ allowed
+! allow
+: ADJ ( Degree=Pos )
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ numbered
+! number
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ called
+! call
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ named
+! name
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ changed
+! change
+: ADJ ( Degree=Pos )
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ colored
+! color
+: ADJ ( Degree=Pos )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ evaluated
+! evaluate
+: VERB ( Tense=Past, VerbForm=Fin )
+
+@ made
+! make
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ filled
+! fill
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ placed
+! place
+: ADJ ( Degree=Pos )
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ removed
+! remove
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ passed
+! pass
+: VERB ( Tense=Past, VerbForm=Fin )
+: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+
+@ scoring
+! score
+: VERB ( Aspect=Prog, Tense=Pres, VerbForm=Part )
+
+

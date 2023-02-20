@@ -10,8 +10,6 @@ import java.util.List;
  * of this lexer is the processing of natural language with oh-so-many errors.
  * The processing is acomplished by creating a table lexer on the fly. This
  * lexer is full of alternatives and shortcuts.
- * 
- * @author Tobias
  */
 public class SuperTolerantLexer {
 	private class Token {

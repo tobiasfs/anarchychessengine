@@ -1,17 +1,11 @@
 package nlp;
 
+import java.io.File;
+
 public class RuleReader {
-	SuperTolerantLexer lex = new SuperTolerantLexer();
-	
-	public RuleReader() {
-		lex.AddDET("the");
-		lex.AddPRON("he");
-		lex.AddPRON("she");
-		lex.AddPRON("it");
-		
-		
+	static public SuperTolerantLexer read(File filename) {
+		SuperTolerantLexer lex = new SuperTolerantLexer();
+
+		return lex;
 	}
-	
-	
-	
 }
