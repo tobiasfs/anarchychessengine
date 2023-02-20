@@ -8,7 +8,7 @@ import java.util.List;
  * <b>Super Tolerant Lexer</b>. This lexer is first set up by handing in words
  * and enums. It only processes full words, no regular expressions. The target
  * of this lexer is the processing of natural language with oh-so-many errors.
- * The processing is acomplished by creating a table lexer on the fly. This
+ * The processing is accomplished by creating a table lexer on the fly. This
  * lexer is full of alternatives and shortcuts.
  */
 public class SuperTolerantLexer {

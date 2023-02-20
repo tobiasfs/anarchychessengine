@@ -4,23 +4,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JSplitPane;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
-import javax.swing.JToolBar;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-
-import javax.swing.SpringLayout;
 import javax.swing.text.StyledEditorKit;
 
 import game.Game;
-
+import nlp.Dictionary;
+import nlp.Language;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -30,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.ScrollPaneConstants;
@@ -43,7 +36,7 @@ public class FrameMain {
 	public JFrame frame;
 	private JEditorPane editor_Description;
 	Game game;
-	
+
 	public FrameMain() {
 		game = new Game();
 		initialize();
@@ -135,6 +128,12 @@ public class FrameMain {
 					e1.printStackTrace();
 				}
 			}
+			try {
+				Dictionary rr = Language.read(Paths.get(".", "language", "dictionary_en.txt").toFile());
+				System.out.println(rr.toString());
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 
@@ -154,6 +153,7 @@ public class FrameMain {
 					e1.printStackTrace();
 				}
 			}
+
 		}
 	}
 
@@ -162,10 +162,11 @@ public class FrameMain {
 			frame.dispose();
 		}
 	}
+
 	private class Editor_DescriptionKeyListener extends KeyAdapter {
 		@Override
 		public void keyTyped(KeyEvent e) {
-			
+
 		}
 	}
 

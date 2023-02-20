@@ -2,6 +2,7 @@ package nlp;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,13 +16,12 @@ public class UniversalDependency {
 		ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CCONJ, DET, NUM, PART, PRON, SCONJ, PUNCT, SYM, X
 	};
 
-	enum Feature {
-		PronType, NumType, Poss, Reflex, Foreign, Abbr, Typo, Gender, Animacy, NounClass, Number, Case, Definite,
-		Degree, VerbForm, Mood, Tense, Aspect, Voice, Evident, Polarity, Person, Polite, Clusivity, Lemma
-	};
+//	enum Feature {
+//		PronType, NumType, Poss, Reflex, Foreign, Abbr, Typo, Gender, Animacy, NounClass, Number, Case, Definite,
+//		Degree, VerbForm, Mood, Tense, Aspect, Voice, Evident, Polarity, Person, Polite, Clusivity, Lemma
+//	};
 
 	Tag UPOS;
-	Map<Feature, String> FEAT;
 	Map<String, String> property;
 
 	static Pattern parseLine = Pattern.compile("^[:]?\\s*([A-Z]+)\\s*(\\([^\\)]*\\))?");
@@ -37,8 +37,39 @@ public class UniversalDependency {
 		Tag tag = Tag.valueOf(tagString);
 
 		this.UPOS = tag;
-		this.FEAT = new HashMap<Feature, String>();
+//		this.FEAT = new HashMap<Feature, String>();
 		this.property = new HashMap<String, String>();
+
+		if (propsString != null && !propsString.isEmpty()) {
+			Matcher prop = parseProperties.matcher(propsString);
+			while (prop.find()) {
+//			Feature feat = Feature.valueOf(prop.group(1));
+//			if (feat == null)
+				property.put(prop.group(1).strip(), prop.group(2).strip());
+//			else
+//				FEAT.put(feat, prop.group(2));
+			}
+		}
 	}
 
+	@Override
+	public String toString() {
+		StringBuffer b = new StringBuffer();
+		b.append(UPOS.toString());
+		if (!property.isEmpty()) {
+			b.append(" (");
+			boolean first = true;
+			for (Entry<String, String> f : property.entrySet()) {
+				if (first)
+					first = false;
+				else
+					b.append(", ");
+				b.append(f.getKey().toString());
+				b.append("=");
+				b.append(f.getValue().toString());
+			}
+			b.append(")");
+		}
+		return b.toString();
+	}
 }
