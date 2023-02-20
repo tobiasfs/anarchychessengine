@@ -7,60 +7,166 @@ import javax.swing.JSplitPane;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
+import javax.swing.JToolBar;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+
+import javax.swing.SpringLayout;
+import javax.swing.text.StyledEditorKit;
+
+import game.Game;
+
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyAdapter;
 
 public class FrameMain {
 
 	public JFrame frame;
-
+	private JEditorPane editor_Description;
+	Game game;
+	
 	public FrameMain() {
+		game = new Game();
 		initialize();
 	}
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 803, 603);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		JLabel lblNewLabel = new JLabel("<game>");
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
-		
-		JSplitPane splitPane_2 = new JSplitPane();
-		frame.getContentPane().add(splitPane_2, BorderLayout.CENTER);
-		splitPane_2.setResizeWeight(0.8);
-		
-		JPanel panel_2 = new JPanel();
-		splitPane_2.setLeftComponent(panel_2);
-		panel_2.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel_3 = new JPanel();
-		panel_2.add(panel_3, BorderLayout.NORTH);
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		panel_2.add(scrollPane_1, BorderLayout.CENTER);
-		
-		JPanel panel_5 = new JPanel();
-		panel_2.add(panel_5, BorderLayout.WEST);
-		
-		JPanel panel_1 = new JPanel();
-		splitPane_2.setRightComponent(panel_1);
-		panel_1.setLayout(new BorderLayout(0, 0));
-		
-		JSplitPane splitPane = new JSplitPane();
-		splitPane.setResizeWeight(0.8);
-		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		panel_1.add(splitPane);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		splitPane.setLeftComponent(scrollPane);
-		
-		JEditorPane dtrpnHelloWorld = new JEditorPane();
-		scrollPane.setViewportView(dtrpnHelloWorld);
-		dtrpnHelloWorld.setText("Hello World");
-		
-		JFormattedTextField formattedTextField = new JFormattedTextField();
-		splitPane.setRightComponent(formattedTextField);
+
+		JMenuBar menuBar = new JMenuBar();
+		frame.getContentPane().add(menuBar, BorderLayout.NORTH);
+
+		JMenu mnFile = new JMenu("Game");
+		menuBar.add(mnFile);
+
+		JMenuItem mntmOpen = new JMenuItem("Open game description");
+		mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
+		mntmOpen.addActionListener(new MntmOpenActionListener());
+		mnFile.add(mntmOpen);
+
+		JMenuItem mntmSave = new JMenuItem("Save game description");
+		mntmSave.addActionListener(new MntmSaveActionListener());
+		mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
+		mnFile.add(mntmSave);
+
+		JSeparator separator = new JSeparator();
+		mnFile.add(separator);
+
+		JMenuItem mntmQuit = new JMenuItem("Quit");
+		mntmQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_DOWN_MASK));
+		mntmQuit.addActionListener(new MntmQuitActionListener());
+		mnFile.add(mntmQuit);
+
+		JSplitPane splitPane_GameText = new JSplitPane();
+		frame.getContentPane().add(splitPane_GameText, BorderLayout.CENTER);
+		splitPane_GameText.setResizeWeight(0.8);
+
+		JPanel panel_Game = new JPanel();
+		splitPane_GameText.setLeftComponent(panel_Game);
+		panel_Game.setLayout(new BorderLayout(0, 0));
+
+		JPanel panel_Own = new JPanel();
+		panel_Own.setAlignmentY(Component.TOP_ALIGNMENT);
+		panel_Game.add(panel_Own, BorderLayout.WEST);
+
+		JScrollPane scrollPane_Game = new JScrollPane();
+		panel_Game.add(scrollPane_Game, BorderLayout.CENTER);
+
+		JPanel panel_Opponent = new JPanel();
+		panel_Game.add(panel_Opponent, BorderLayout.EAST);
+
+		JPanel panel_Description = new JPanel();
+		splitPane_GameText.setRightComponent(panel_Description);
+		panel_Description.setLayout(new BorderLayout(0, 0));
+
+		JSplitPane splitPane_DescriptionDebug = new JSplitPane();
+		splitPane_DescriptionDebug.setResizeWeight(0.8);
+		splitPane_DescriptionDebug.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		panel_Description.add(splitPane_DescriptionDebug);
+
+		JScrollPane scrollPane_Text = new JScrollPane();
+		scrollPane_Text.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		splitPane_DescriptionDebug.setLeftComponent(scrollPane_Text);
+
+		editor_Description = new JEditorPane();
+		editor_Description.addKeyListener(new Editor_DescriptionKeyListener());
+		scrollPane_Text.setViewportView(editor_Description);
+//		editor_Description.setContentType("text/plain");
+		editor_Description.setEditorKit(new StyledEditorKit());
+
+		JFormattedTextField formattedTextField_Debug = new JFormattedTextField();
+		splitPane_DescriptionDebug.setRightComponent(formattedTextField_Debug);
+	}
+
+	private class MntmOpenActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			final JFileChooser fc = new JFileChooser();
+			fc.setCurrentDirectory(new File(".", "games"));
+			int returnVal = fc.showOpenDialog(frame);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+				try {
+					String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+					editor_Description.setText(contents);
+					editor_Description.setCaretPosition(0);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		}
+	}
+
+	private class MntmSaveActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String contents = editor_Description.getText();
+			if (contents.isEmpty())
+				return;
+			final JFileChooser fc = new JFileChooser();
+			fc.setCurrentDirectory(new File(".", "games"));
+			int returnVal = fc.showSaveDialog(frame);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+				try {
+					Files.write(file.toPath(), contents.getBytes(StandardCharsets.UTF_8));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		}
+	}
+
+	private class MntmQuitActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+		}
+	}
+	private class Editor_DescriptionKeyListener extends KeyAdapter {
+		@Override
+		public void keyTyped(KeyEvent e) {
+			
+		}
 	}
 
 }
