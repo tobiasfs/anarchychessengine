@@ -1,5 +1,9 @@
 package game;
 
-public class Grid {
+abstract class AbstractGrid extends Part {
+	int dim[];
 
+	AbstractGrid() {
+		
+	}
 }
