@@ -13,6 +13,8 @@ import javax.swing.text.StyledEditorKit;
 import game.Game;
 import nlp.Dictionary;
 import nlp.Language;
+import nlp.SuperTolerantLexer;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -129,8 +131,10 @@ public class FrameMain {
 				}
 			}
 			try {
-				Dictionary rr = Language.read(Paths.get(".", "language", "dictionary_en.txt").toFile());
-				System.out.println(rr.toString());
+				Language lang = new Language();
+				lang.read(Paths.get(".", "language", "dictionary_en.txt").toFile());
+				SuperTolerantLexer lex = new SuperTolerantLexer(lang);
+
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

@@ -756,11 +756,6 @@
 : VERB ( VerbForm=Inf )
 : VERB ( Tense=Pres, VerbForm=Fin )
 
-@ signal
-: NOUN ( Number=Sing )
-: VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
-
 @ place
 : NOUN ( Number=Sing )
 : VERB ( VerbForm=Inf )

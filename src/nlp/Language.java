@@ -10,8 +10,10 @@ import java.util.regex.Pattern;
 public class Language {
 	static Pattern parseLine = Pattern.compile("^\\s*([@:!])\\s*(.+?)\\s*$", Pattern.MULTILINE);
 
-	static public Dictionary read(File file) throws IOException {
-		Dictionary dict = new Dictionary();
+	Dictionary dict = null;
+
+	public void read(File file) throws IOException {
+		dict = new Dictionary();
 		String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
 		Matcher line = parseLine.matcher(contents);
 		Word word = null;
@@ -27,10 +29,12 @@ public class Language {
 				word.lemma = line.group(2);
 			}
 			if (type.compareTo(":") == 0) {
+				if (word == null)
+					throw new RuntimeException(
+							"In the dictionary the first line is a universal-dependency (:) and not a word (@).");
 				UniversalDependency ud = new UniversalDependency(line.group(2));
 				word.ud.add(ud);
 			}
 		}
-		return dict;
 	}
 }
