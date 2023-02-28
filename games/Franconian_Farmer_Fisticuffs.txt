@@ -1,0 +1,49 @@
+This is Franconian Framer Fisticuffs.
+(A friend told me that its called "Baerenbacher Bauernkloppe" but aliteration beats translation.)
+
+The player!
+
+There are two player. The player are colored black or white.
+The white player faces north. The black player faces the opposite direction.
+
+The board!
+
+It is square. The grid is quadratic. It has 4 rows and 4 columns. The areas are displayed and are called squares.
+The columns have latin letters and are numbered west to east and are starting from three.
+The rows have arabic numbers and are numbered from south to north and are starting from three.
+
+The south west square is black. The squares colors alternate between black and white.
+For the squares the black is brown and the white is beige.
+
+The rows are called ranks.
+The columns are called files.
+The homerow is the front row.
+The first row is the first rank for white.
+The second row is the second rank for white.
+The last row is the first rank for black.
+The second to last row is the second rank for black.
+
+The pieces!
+
+Players can only move pieces of the own color.
+Players can only attack pieces of the enemies color.
+Pieces can only attack one enemy piece. 
+The pieces can only move over free squares. 
+
+The pawn moves forward one square. The pawn attacks one square front left or one square front right.
+From the starting position the pawn can move forward two squares.
+A pawn can attack another pawn one square to the front left or one square to the front right in passing; this is called "en passant".
+
+The setup!
+
+The first rank is filled with pawns.
+
+The game and finish!
+
+White starts.
+The players take turns. 
+A player makes one action per turn.
+
+If a pawn reaches the fourth rank, this is the winning condition.
+If a player cannot move and a player signals "Draw", this is called a "Draw by resignation" and is a draw condition.
+A player can signal "Resignation" this is a losing condition.
