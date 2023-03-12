@@ -1,4 +1,4 @@
-This is bog-standard vanilla chess.
+This is vanilla chess.
 
 The player!
 

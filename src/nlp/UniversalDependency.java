@@ -72,4 +72,15 @@ public class UniversalDependency {
 		}
 		return b.toString();
 	}
+
+	public boolean Is(String tag) {
+		Tag t = Tag.valueOf(tag);
+		if (t == null)
+			throw new RuntimeException(String.format("The tag '%s' is not a valid Universal Dependency tag.", tag));
+		return (UPOS == t);
+	}
+
+	public boolean Is(Tag tag) {
+		return (UPOS == tag);
+	}
 }

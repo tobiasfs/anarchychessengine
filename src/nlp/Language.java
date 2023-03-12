@@ -8,17 +8,26 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Language {
-	static Pattern parseLine = Pattern.compile("^\\s*([@:!])\\s*(.+?)\\s*$", Pattern.MULTILINE);
+	static Pattern parseLine = Pattern.compile("^\\s*([@:!>])\\s*(.+?)\\s*$", Pattern.MULTILINE);
 
 	Dictionary dict = null;
+	String name;
 
-	public void read(File file) throws IOException {
+	public Language() {
+		name = new String("en");
+	}
+
+	public void readDictionary(File file) throws IOException {
 		dict = new Dictionary();
 		String contents = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
 		Matcher line = parseLine.matcher(contents);
 		Word word = null;
 		while (line.find()) {
 			String type = line.group(1);
+			if(type.compareTo(">")== 0) {
+				dict.languagename = line.group(2);
+			}
+			
 			if (type.compareTo("@") == 0) {
 				word = new Word(line.group(2));
 				dict.words.add(word);
@@ -36,5 +45,24 @@ public class Language {
 				word.ud.add(ud);
 			}
 		}
+	}
+
+	boolean isUpper(int ch) {
+		if (ch >= 'A' && ch <= 'Z')
+			return true;
+
+		return false;
+	}
+
+	int toLower(int ch) {
+		if (ch >= 'A' && ch <= 'Z')
+			return ch + 32;
+		return ch;
+	}
+
+	int toUpper(int ch) {
+		if (ch >= 'a' && ch <= 'z')
+			return ch - 32;
+		return ch;
 	}
 }

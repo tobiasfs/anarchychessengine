@@ -1,37 +1,37 @@
 package gui;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JScrollPane;
-import javax.swing.JEditorPane;
-import javax.swing.JFileChooser;
-import javax.swing.JFormattedTextField;
-import javax.swing.text.StyledEditorKit;
-
-import game.Game;
-import nlp.Dictionary;
-import nlp.Language;
-import nlp.SuperTolerantLexer;
-
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.JSplitPane;
 import javax.swing.KeyStroke;
-import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyAdapter;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.text.StyledEditorKit;
+
+import game.Game;
+import nlp.Language;
+import nlp.SuperTolerantLexer;
+import java.awt.Toolkit;
 
 public class FrameMain {
 
@@ -46,6 +46,7 @@ public class FrameMain {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(FrameMain.class.getResource("/gui/icon.png")));
 		frame.setBounds(100, 100, 803, 603);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -132,8 +133,16 @@ public class FrameMain {
 			}
 			try {
 				Language lang = new Language();
-				lang.read(Paths.get(".", "language", "dictionary_en.txt").toFile());
+				lang.readDictionary(Paths.get(".", "language", "dictionary_en.txt").toFile());
 				SuperTolerantLexer lex = new SuperTolerantLexer(lang);
+
+				String contents = editor_Description.getText();
+				lex.initLexing(contents);
+				nlp.Token token = lex.nextToken();
+				while (token != null) {
+					System.out.println(token);
+					token = lex.nextToken();
+				}
 
 			} catch (IOException e1) {
 				e1.printStackTrace();

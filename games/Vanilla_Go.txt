@@ -1,5 +1,5 @@
 This is vanilla go.
-It is like tic-tac-toe but with different rules.
+(It is like tic-tac-toe but with easier rules.)
 
 The board!
 

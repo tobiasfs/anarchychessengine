@@ -2,6 +2,9 @@
 
 # -----------------------------------------------------------------------------
 
+
+> en
+
 @ !
 : PUNCT ( PunctType=Peri )
 
@@ -13,6 +16,9 @@
 
 @ ,
 : PUNCT ( PunctType=Comm )
+
+@ "
+: PUNCT ( PunctType=Quot )
 
 @ there
 : PRON ( Definite=Def )

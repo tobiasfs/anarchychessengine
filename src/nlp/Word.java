@@ -3,6 +3,8 @@ package nlp;
 import java.util.ArrayList;
 import java.util.List;
 
+import nlp.UniversalDependency.Tag;
+
 /**
  * Storage for one word used in the construction of the text. The word has one
  * or more Universal Dependencies attached to it (e.g. the word "score" can be a
@@ -36,6 +38,20 @@ public class Word {
 			b.append(ud.toString());
 		}
 		return b.toString();
+	}
+
+	public boolean Is(String tag) {
+		for (UniversalDependency u : ud)
+			if (u.Is(tag))
+				return true;
+		return false;
+	}
+
+	public boolean Is(Tag tag) {
+		for (UniversalDependency u : ud)
+			if (u.Is(tag))
+				return true;
+		return false;
 	}
 
 }

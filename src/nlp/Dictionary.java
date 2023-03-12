@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Dictionary {
 	public List<Word> words;
+	public String languagename;
 
 	public Dictionary() {
 		words = new ArrayList<Word>();
+		languagename = new String();
 	}
 
 	@Override
