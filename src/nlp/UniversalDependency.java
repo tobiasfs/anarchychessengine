@@ -7,19 +7,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Universal dependency tag. Follows the notation in <a
- * href=https://universaldependencies.org/format.html> UD web-site</a> except
- * for the ID, XPOS, FORM, HEAD which are found in the Word class.
+ * Universal dependency tag. Follows the notation of the Universal Dependency
+ * concept except for the ID, XPOS, FORM, HEAD which are found in the Word
+ * class.
+ * <p>
+ * Features for words are not explicitly stated. These are stored in free form
+ * in a map. This map contains also the values for the later construction of the
+ * objects.
+ * <p>
+ * Possible features would be: PronType, NumType, Poss, Reflex, Foreign, Abbr,
+ * Typo, Gender, Animacy, NounClass, Number, Case, Definite, Degree, VerbForm,
+ * Mood, Tense, Aspect, Voice, Evident, Polarity, Person, Polite, Clusivity,
+ * Lemma
+ * 
+ * @see UniversalDependency.Tag
+ * @see <a href=
+ *      "https://universaldependencies.org/format.html">https://universaldependencies.org/format.html</a>
+ * @author Toby
  */
 public class UniversalDependency {
-	enum Tag {
+	/**
+	 * POS Tags for a single word.
+	 * 
+	 * @see <a href=
+	 *      "https://universaldependencies.org/u/pos/index.html">https://universaldependencies.org/u/pos/index.html</a>
+	 */
+	public enum Tag {
 		ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CCONJ, DET, NUM, PART, PRON, SCONJ, PUNCT, SYM, X
 	};
-
-//	enum Feature {
-//		PronType, NumType, Poss, Reflex, Foreign, Abbr, Typo, Gender, Animacy, NounClass, Number, Case, Definite,
-//		Degree, VerbForm, Mood, Tense, Aspect, Voice, Evident, Polarity, Person, Polite, Clusivity, Lemma
-//	};
 
 	Tag UPOS;
 	Map<String, String> property;
@@ -73,14 +88,29 @@ public class UniversalDependency {
 		return b.toString();
 	}
 
-	public boolean Is(String tag) {
-		Tag t = Tag.valueOf(tag);
-		if (t == null)
-			throw new RuntimeException(String.format("The tag '%s' is not a valid Universal Dependency tag.", tag));
-		return (UPOS == t);
+//	public boolean Is(String tag) {
+//		Tag t = Tag.valueOf(tag);
+//		if (t == null)
+//			throw new RuntimeException(String.format("The tag '%s' is not a valid Universal Dependency tag.", tag));
+//		return (UPOS == t);
+//	}
+
+	public String get(String key) {
+		if (property.containsKey(key))
+			return property.get(key);
+		return "";
 	}
 
 	public boolean Is(Tag tag) {
 		return (UPOS == tag);
+	}
+
+	public boolean Is(Tag tag, String key, String value) {
+		if (UPOS != tag)
+			return false;
+		String ref = get(key);
+		if (ref.compareToIgnoreCase(value) == 0)
+			return true;
+		return false;
 	}
 }

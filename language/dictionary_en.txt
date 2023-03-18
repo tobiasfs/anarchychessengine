@@ -2,8 +2,30 @@
 
 # -----------------------------------------------------------------------------
 
-
+# The language this is for ( https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes ):
 > en
+
+# Reduction rules:
+
+~ DET -[DET]-> NOUN
+~ DET -[DET]-> VERB
+~ ADJ -[AMOD]-> NOUN
+~ ADP -[CASE]-> NOUN
+~ NUM -[NUMMOD]-> NOUN
+~ CCONJ -[CC]-> ADJ
+~ ADJ <-[CONJ]- ADJ
+~ VERB <-[PUNCT]- PUNCT
+~ NOUN <-[PUNCT]- PUNCT
+~ X -[FLAT]-> X
+~ NOUN -[NSUBJ]-> VERB
+~ PRON -[EXPL]-> VERB
+~ VERB <-[OBJ]- NOUN
+~ VERB <-[COP]- ADJ
+~ VERB <-[OBJ]- X
+
+
+
+# All the words:
 
 @ !
 : PUNCT ( PunctType=Peri )
@@ -38,11 +60,11 @@
 : ADP
 : ADJ ( Degree=Pos )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ can
 : VERB ( VerbType=Mod )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ must
 : VERB ( VerbType=Mod )
@@ -194,12 +216,12 @@
 @ free
 : ADJ ( Degree=Pos )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ empty
 : ADJ ( Degree=Pos )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ first
 : ADJ ( Degree=Pos )
@@ -238,7 +260,7 @@
 
 @ zero
 : NUM ( NumType=Card )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ one
 : NUM ( NumType=Card )
@@ -326,8 +348,8 @@
 : NOUN ( Number=Sing )
 : ADJ ( Degree=Pos )
 : ADV ( Degree=Pos )
-: VERB ( Tense=Past, VerbForm=Fin, Lemma=leave )
-: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part, Lemma=leave )
+: VERB ( VerbForm=Fin, Tense=Past, Lemma=leave )
+: VERB ( VerbForm=Part, Tense=Past, Aspect=Perf, Lemma=leave )
 
 @ right
 : NOUN ( Number=Sing )
@@ -338,7 +360,7 @@
 : NOUN ( Number=Sing )
 : ADJ ( Degree=Pos )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ center
 : NOUN ( Number=Sing )
@@ -352,7 +374,7 @@
 : NOUN ( Number=Sing )
 : ADJ ( Degree=Pos )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ backward
 : ADV ( Degree=Pos )
@@ -404,8 +426,8 @@
 @ attacked
 ! attack
 : ADJ ( Degree=Pos )
-: VERB ( Tense=Past, VerbForm=Fin )
-: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
+: VERB ( VerbForm=Fin, Tense=Past )
+: VERB ( VerbForm=Part, Tense=Past, Aspect=Perf )
 
 # -----------------------------------------------------------------------------
 
@@ -448,6 +470,11 @@
 
 @ player
 : NOUN ( Number=Sing )
+: NOUN ( Number=Plur )
+
+@ players
+! player
+: NOUN ( Number=Plur )
 
 @ opponent
 : NOUN ( Number=Sing )
@@ -612,7 +639,7 @@
 @ move
 : NOUN ( Number=Sing )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 
 @ condition
@@ -640,23 +667,23 @@
 @ attack
 : NOUN ( Number=Sing )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ advance
 : NOUN ( Number=Sing )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ signal
 : NOUN ( Number=Sing )
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
 
 @ set
 : VERB ( VerbForm=Inf )
-: VERB ( Tense=Past, VerbForm=Fin )
-: VERB ( Aspect=Perf, Tense=Past, VerbForm=Part )
-: VERB ( Tense=Pres, VerbForm=Fin )
+: VERB ( VerbForm=Fin, Tense=Pres )
+: VERB ( VerbForm=Fin, Tense=Past )
+: VERB ( VerbForm=Part, Tense=Past, Aspect=Perf )
 : NOUN ( Number=Sing )
 
 @ attacks
@@ -672,10 +699,6 @@
 ! signal
 : NOUN ( Number=Plur )
 : VERB ( Number=Sing, Person=3, Tense=Pres, VerbForm=Fin )
-
-@ players
-! player
-: NOUN ( Number=Plur )
 
 @ moves
 ! move

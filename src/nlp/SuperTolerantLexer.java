@@ -11,23 +11,40 @@ import java.util.Vector;
  * of this lexer is the processing of natural language with oh-so-many errors.
  * The processing is accomplished by creating a table lexer on the fly. This
  * lexer is full of alternatives and shortcuts.
+ * <p>
+ * Note: In the end of the constructor {@link #SuperTolerantLexer(Language)}, a
+ * copy of the generated tables is made. This copy can be restored by calling
+ * {@link #Reset()}. The sppeds up the reconstruction of the lexer after a text
+ * has been processed, because the act of parsing modifies the lexer. To get the
+ * same results on every run, this lexer needs to be reset.
+ * 
+ * @author Toby
  */
 public class SuperTolerantLexer {
 
 	Vector<Integer> table = new Vector<Integer>(102400, 10240);
 	Vector<Word> match = new Vector<Word>(400, 40);
+	Vector<Integer> basetable;
+	Vector<Word> basematch;
 	private byte[] bytes;
 	private int pos;
 	private int row;
 	private int col;
-	private Language lang;
+	public Language lang;
 	private Word wordX;
+	private Token next = null;
 
+	/**
+	 * Constructor of the {@link SuperTolerantLexer}. Pass a {@link Language} in on
+	 * construction.
+	 * 
+	 * @param lang {@link Language}
+	 */
 	public SuperTolerantLexer(Language lang) {
 		this.lang = lang;
 		this.wordX = new Word("");
 		this.wordX.ud.add(new UniversalDependency("X"));
-		
+
 		final int initialStateCount = 2;
 
 		table = new Vector<Integer>(102400, 10240);
@@ -45,7 +62,6 @@ public class SuperTolerantLexer {
 		for (int idx = 33; idx <= 127; ++idx)
 			table.setElementAt(Integer.valueOf(1), idx);
 
-		
 		match.setElementAt(wordX, 1);
 		for (int idx = 'A'; idx <= 'A'; ++idx)
 			table.setElementAt(Integer.valueOf(1), 256 + idx);
@@ -67,6 +83,22 @@ public class SuperTolerantLexer {
 
 		// TODO Robustness improvement by adding additional forward links.
 		// TODO Robustness improvement by adding character repetition rules.
+
+		// Backup the generated tables for the Reset() command.
+		basetable = new Vector<Integer>(table);
+		basematch = new Vector<Word>(match);
+	}
+
+	/**
+	 * Copies the backup of the tables into the working versions of the tables. This
+	 * is needed, if the process of parsing a text is changing the lexer. This
+	 * happens for example, if in the description new words are added to the lexer.
+	 * "This piece is called the
+	 * 
+	 */
+	public void Reset() {
+		table = new Vector<Integer>(basetable);
+		match = new Vector<Word>(basematch);
 	}
 
 	/**
@@ -123,7 +155,7 @@ public class SuperTolerantLexer {
 				for (int idx = 128; idx <= 255; ++idx)
 					table.setElementAt(Integer.valueOf(1), offset + idx);
 				match.setSize(match.size() + 1);
-				match.setElementAt(wordX, match.size()-1);
+				match.setElementAt(wordX, match.size() - 1);
 				state = nextFreeState;
 				++nextFreeState;
 			}
@@ -131,6 +163,11 @@ public class SuperTolerantLexer {
 		return state;
 	}
 
+	/**
+	 * Inits the lexer to a given text.
+	 * 
+	 * @param contents {@link String} Text fed into the lexer.
+	 */
 	public void initLexing(String contents) {
 		bytes = contents.getBytes(StandardCharsets.UTF_8);
 		pos = 0;
@@ -152,6 +189,11 @@ public class SuperTolerantLexer {
 	 *         are taken from the dictionary.
 	 */
 	public Token nextToken() {
+		if (next != null) {
+			Token temp = next;
+			next = null;
+			return temp;
+		}
 
 		int state = 0;
 		int startPos = pos;
@@ -174,7 +216,8 @@ public class SuperTolerantLexer {
 					Word word = match.get(state);
 					// If there is nothing associated to the word, something went wrong. At least a
 					// garbage token should have been found.
-					//TODO 'passing' is a word, 'pass' results in an exception, it should return and 'X'-UD.
+					// TODO 'passing' is a word, 'pass' results in an exception, it should return
+					// and 'X'-UD.
 					if (word == null)
 						throw new RuntimeException(
 								String.format("The word at row %1$d col %2$d could not be read.", row, col));
@@ -182,6 +225,8 @@ public class SuperTolerantLexer {
 					// If interpunctuation or whitespace is found, pack the parsed text into a token
 					// and return it.
 					Token token = new Token(new String(Arrays.copyOfRange(bytes, startPos, pos)), word);
+					token.row = row;
+					token.col = col + startPos - pos; // The position at the start of the token.
 					return token;
 				} else {
 					state = nextState.intValue();
@@ -196,7 +241,7 @@ public class SuperTolerantLexer {
 				col = col + (4 - (col % 4));
 			if (value == 10) {
 				row++;
-				col = 0;
+				col = 1;
 			}
 			// Read the whitespace and discard it by shifting the startPos.
 			if (value <= 32)
@@ -204,4 +249,18 @@ public class SuperTolerantLexer {
 		}
 		return null;
 	}
+
+	/**
+	 * Look ahead for the next token. This does not advance the point in the lexer.
+	 * Multiple calls to lookAhead will return always the same, future token.
+	 * 
+	 * @return {@link Token}
+	 */
+	public Token lookAhead() {
+		if (next != null)
+			return next;
+		next = nextToken();
+		return next;
+	}
+
 }

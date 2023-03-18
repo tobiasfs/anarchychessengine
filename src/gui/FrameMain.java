@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -30,12 +31,14 @@ import javax.swing.text.StyledEditorKit;
 
 import game.Game;
 import nlp.Language;
+import nlp.NLParser;
 import nlp.SuperTolerantLexer;
-import java.awt.Toolkit;
+import nlp.UniversalDependency;
 
 public class FrameMain {
 
 	public JFrame frame;
+	public GamePanel gamepanel;
 	private JEditorPane editor_Description;
 	Game game;
 
@@ -90,6 +93,9 @@ public class FrameMain {
 		JScrollPane scrollPane_Game = new JScrollPane();
 		panel_Game.add(scrollPane_Game, BorderLayout.CENTER);
 
+		gamepanel = new GamePanel(game);
+		scrollPane_Game.setViewportView(gamepanel);
+
 		JPanel panel_Opponent = new JPanel();
 		panel_Game.add(panel_Opponent, BorderLayout.EAST);
 
@@ -117,6 +123,7 @@ public class FrameMain {
 	}
 
 	private class MntmOpenActionListener implements ActionListener {
+
 		public void actionPerformed(ActionEvent e) {
 			final JFileChooser fc = new JFileChooser();
 			fc.setCurrentDirectory(new File(".", "games"));
@@ -135,12 +142,16 @@ public class FrameMain {
 				Language lang = new Language();
 				lang.readDictionary(Paths.get(".", "language", "dictionary_en.txt").toFile());
 				SuperTolerantLexer lex = new SuperTolerantLexer(lang);
+				NLParser parser = new NLParser(lex);
 
 				String contents = editor_Description.getText();
-				lex.initLexing(contents);
+				parser.parse(contents);
+
 				nlp.Token token = lex.nextToken();
 				while (token != null) {
 					System.out.println(token);
+					if (token.Is(UniversalDependency.Tag.PUNCT))
+						break;
 					token = lex.nextToken();
 				}
 

@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.text.StyledEditorKit;
-import javax.swing.text.ViewFactory;
 
 public class NLPEditorKit extends StyledEditorKit {
 	private static final long serialVersionUID = 1619955692845470459L;
